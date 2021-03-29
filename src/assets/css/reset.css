@@ -1,0 +1,149 @@
+﻿@charset "utf-8";
+
+/* CSS Reset*/
+
+body,
+div,
+p,
+ul,
+ol,
+li,
+textarea,
+form,
+input,
+button,
+h1,
+h2,
+h3,
+h4,
+h5,
+dl,
+dt,
+dd,
+img,
+section,
+article,
+aside,
+header,
+footer,
+nav,
+dialog,
+figure,
+hgroup {
+    margin: 0;
+    padding: 0;
+    font-weight: normal;
+}
+
+html {
+    font-size: 625%;
+}
+
+input,
+button,
+select,
+textarea {
+    border: none;
+    outline: none;
+}
+
+ul,
+ol,
+li {
+    list-style: none;
+}
+
+img {
+    border: 0;
+}
+
+section,
+article,
+aside,
+header,
+footer,
+nav,
+dialog,
+figure,
+hgroup {
+    display: block;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+.clearfix:before,
+.clearfix:after {
+    display: table;
+    line-height: 0;
+    content: "";
+    clear: both;
+}
+
+@media screen and (max-width:749px) {
+    .f24 {
+        font-size: 12px
+    }
+    .f26 {
+        font-size: 13px
+    }
+    .f28 {
+        font-size: 14px
+    }
+    .f30 {
+        font-size: 15px
+    }
+
+    .f32 {
+        font-size: 16px
+    }
+    .f34 {
+        font-size: 17px
+    }
+    .f36 {
+        font-size: 18px
+    }
+    .f40 {
+        font-size: 20px
+    }
+}
+
+
+@media screen and (min-width:750px) {
+    .f24 {
+        font-size: 24px
+    }
+    .f26 {
+        font-size: 26px
+    }
+    .f28 {
+        font-size: 28px
+    }
+    .f30 {
+        font-size: 30px
+    }
+    .f32 {
+        font-size: 32px
+    }
+    .f34 {
+        font-size: 34px
+    }
+    .f36 {
+        font-size: 36px
+    }
+     .f40 {
+        font-size: 18px
+    }
+}
+
+body {
+    height: 100%;
+    font: arial,"\5b8b\4f53",sans-serif;
+}
+
+* {
+    box-sizing: border-box;box-sizing: border-box;-webkit-tap-highlight-color:transparent;-webkit-text-size-adjust: 100%;
+}
+

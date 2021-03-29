@@ -1,0 +1,260 @@
+html {
+    height: 100%;
+}
+
+body {
+    /* background: url("../images/bg.jpg") no-repeat right center; */
+    background-size: 100% 100%;
+    min-height: 100%;
+   
+}
+.contain{
+    height: 100%;
+    width: 100%;
+    display: flex;justify-content: center;
+    align-items: center;
+ 
+}
+.title {
+    color: #010101;
+    font-size: 0.36rem;
+    line-height: 0.6rem;
+    height: 0.4rem;
+    text-align: center;
+}
+
+.form {
+    width: 6.54rem;
+    max-height: 11.18rem;
+    /* height: 8.68rem; */
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 0.03rem 0.15rem 0 rgba(25, 25, 47, 0.3);
+    margin: 0 auto 0;
+    padding: 0.34rem 0.53rem 0.3rem;
+}
+
+.logo {
+    height: 0.48rem;
+    width: 100%;
+    background: url("../images/xintonglogo.png") no-repeat center center;
+    background-size: 1.54rem 0.48rem;
+   
+}
+.scorllcon{
+    max-height: 7.31rem;
+    overflow-y: scroll;
+}
+.form .inputitem {
+    border-bottom: 1px solid #E5E5E5;
+    padding-top: 0.23rem;
+    position: relative;
+    font-size: 0.26rem;
+}
+@media (-webkit-min-device-pixel-ratio: 2) {
+    .form .inputitem {
+        border-bottom: 0.5px solid #E5E5E5;
+      
+    } 
+
+}
+.form .inputitem3 {
+    border-bottom: none;
+}
+
+.form .inputitem2 {
+    padding-top: 0;
+}
+
+input::-webkit-input-placeholder {
+    /* placeholder颜色  */
+    font-size: 0.26rem;
+    line-height: 1.3;
+    color: #939393;
+}
+
+.form .inputitem input {
+    font-size: 0.26rem;
+    width: 100%;
+    background: none;
+    padding-left: 0.2rem;
+    height: 0.83rem;
+    line-height: 1;
+}
+
+.form .inputitem2 input {
+    width: 1.79rem;
+    background: none;
+    padding-left: 0;
+}
+
+.form .homename {
+    padding-left: 0.2rem;
+    float: left;
+    color: #3C4F5E;
+    font-size: 0.26rem;
+    padding-right: 0.5rem;
+}
+
+.form .homename span {
+    padding-right: 0.2rem;
+}
+
+.form .inputitem3.delete .weui-label {
+    padding-left: 0.48rem;
+   
+}
+.dot{
+    display: inline-block;
+    background: url("../images/dot.png") no-repeat right center;
+    background-size: 0.08rem 0.08rem; 
+    width: 0.08rem;
+    height: 0.08rem;
+}
+
+.form .inputitem3.delete .delbtn {
+    content: "";
+    display: block;
+    background: url("../images/shanchu.png") no-repeat left center;
+    background-size: 0.28rem 0.28rem; 
+    width: 0.48rem;
+    height: 0.77rem;
+ 
+    position: absolute;
+    top:0;
+    left: 0;
+   
+}
+/* .form .inputitem3.delete .weui-label::before {
+    content: "";
+    display: block;
+    background: url("../images/shanchu.png") no-repeat left center;
+    background-size: 0.28rem 0.28rem; 
+    width: 0.48rem;
+    height: 0.77rem;
+ 
+    position: absolute;
+    top:0;
+    left: 0;
+   
+} */
+.addpeoplecon{
+    padding-top:0.4rem; 
+}
+.addpeople {
+    color: #3C4F5E;
+    width: 1.66rem;
+    height: 0.54rem;
+    border: 1px solid #3C4F5E;
+    border-radius: 0.27rem;
+    display: block;
+    margin: 0 auto;
+    font-size: 0.26rem;
+    line-height: 0.54rem;
+    text-align: center;
+}
+
+.validcode {
+    float: right;
+    width: 1.76rem;
+    height: 0.54rem;
+    margin-top: 0.15rem;
+    background: linear-gradient(90deg, rgba(15, 224, 213, 1), rgba(12, 177, 254, 1));
+    box-shadow: 0 0.05rem 0.1rem 0 rgba(64, 149, 227, 0.3);
+    border-radius: 0.27rem;
+    color: #fff;
+    font-size: 0.26rem;
+}
+
+.validcode[disabled] {
+    background: #E1E1E1;
+    box-shadow: 0 0.05rem 0.1rem 0 rgba(255, 255, 255, 0.3);
+}
+
+.subbtn {
+    display: block;
+    width: 5.48rem;
+    height: 0.8rem;
+    line-height: 0.8rem;
+    background: linear-gradient(90deg, rgba(15, 224, 213, 1), rgba(12, 177, 254, 1));
+    box-shadow: 0 0.05rem 0.1rem 0 rgba(64, 149, 227, 0.3);
+    border-radius: 0.4rem;
+    font-size: 0.28rem;
+    color: #fff;
+    text-align: center;
+    margin-top: 0.5rem;
+}
+
+.subbtn[disabled] {
+    background: #E1E1E1;
+    box-shadow: 0 0.05rem 0.1rem 0 rgba(225, 225, 225, 0.3);
+}
+
+.signin {
+    color: #0CB1FE;
+    font-size: 0.22rem;
+    display: block;
+    height: 0.6rem;
+    line-height: 0.6rem;
+    text-align: right;
+    text-decoration: none;
+    padding-right: 0.46rem;
+}
+
+.weui-cell_access .weui-cell__ft:after {
+    display: none !important;
+}
+
+.vux-cell-value {
+    color: #414141 !important
+}
+
+.weui-cells {
+    margin-top: 0 !important;
+    font-size: 0.26rem !important;
+    background: none !important;
+    padding-left: 0.2rem;
+}
+
+.weui-cell {
+    padding: 0 !important;
+    height: 0.83rem;
+    line-break: 0.83rem;
+    color: #3C4F5E;
+}
+
+.weui-cell__ft {
+    background: url("../images/right.png") no-repeat right center;
+    background-size: 0.14rem 0.26rem;
+    width: 0.46rem;
+    height: 0.26rem;
+}
+
+.weui-cells:before, .vux-cell-box:before {
+    border-top: none !important;
+}
+
+.weui-cells:after {
+    display: none !important;
+}
+
+.weui-dialog__hd {
+    padding: 0 !important;
+}
+
+.weui-dialog__title {
+    display: block;
+    margin: 0.2rem auto;
+}
+
+.weui-dialog__btn_primary {
+    color: #f2ae02 !important
+}
+
+.weui-dialog__btn_default {
+    color: #666 !important
+}
+
+.weui-toast__content {
+    font-size: 0.24rem !important;
+    padding: 0 0.2rem;
+}

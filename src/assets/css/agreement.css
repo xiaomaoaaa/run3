@@ -1,0 +1,104 @@
+html,body {
+
+    height: 100%;
+}
+.activetab{
+    background: rgba(255, 255, 255, 0.9);
+    height: 100%;
+}
+table {
+    font-size: 0.26rem;
+    width: 100%;
+    text-align: center;
+}
+
+table td, table th {
+    border: #0F3675 0.02rem solid;
+    height: 0.48rem;
+}
+
+table th {
+    color: #0F3675;
+    font-weight: bold;
+    background: #E5EBF6;
+}
+
+.tabmenu {
+  
+    /* background: #f8f8f8; */
+    /* background: url("../images/bg_head.jpg") no-repeat center top;
+    background-size:  100% 2.2rem; */
+    border-bottom: #C9C9C9 0.01rem solid;
+    display: flex;
+    justify-content: space-between;
+}
+
+.tabmenu li {
+    width: 1.6rem;
+    height: 0.91rem;
+    font-size: 0.3rem;
+    color: #131313;
+    float: left;
+    text-align: center;
+    line-height: 0.91rem;
+    position: relative;
+}
+
+.tabmenu li.cur {
+    color: #0CB1FE;
+   
+}
+.tabmenu li.cur .bottomline{
+    width:1.6rem;
+    height:0.06rem;
+    background:linear-gradient(90deg,rgba(15,224,213,1),rgba(12,177,254,1));
+    position: absolute;
+    bottom: -0.01rem;
+}
+.tabcon {
+    padding: 0.3rem 0.48rem 0rem;
+    display: none;
+}
+
+.tabcon p {
+    color: #414141;
+    line-height: 0.46rem;
+    word-break: break-word;
+    text-align: justify;
+    font-size: 0.26rem;
+}
+.pb30{
+    padding-bottom: 0.2rem;
+}
+
+
+.tabcon:nth-of-type(1) {
+    display: block
+}
+
+.tabcon h3 {
+    color: #333;
+    background: url(../images/img_dot.png) no-repeat left 0.15rem;
+    background-size: 0.22rem, 0.22rem;
+    padding-left: 0.28rem;
+    word-break: break-word;
+    line-height: 0.56rem;
+    text-align: justify;
+    font-size: 0.3rem;
+    margin-top: 0.16rem;
+}
+
+.tabcon h3:nth-of-type(1) {
+    margin-top: 0
+}
+
+
+.tabcon h3 span, .tabcon p span {
+    color: #0682eb;
+}
+.pb15{
+    padding-bottom: 0.15rem;
+}
+.pt15{
+    padding-top: 0.15rem;
+}

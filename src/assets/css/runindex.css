@@ -1,0 +1,101 @@
+html {
+    height: 100%;
+}
+
+body {
+  
+    background-size: 100% 100%;
+    padding-top:1.43rem;
+    min-height: 100%;
+   
+}
+
+.line1,.line2{
+	position: absolute;
+	width: 0.14rem;
+	height: 1.68rem;
+	top:0;
+	left:1.01rem;
+	 background: url("../images/line.png") no-repeat right center;
+	 background-size:  0.14rem 1.68rem;
+}
+.line2{
+	left:6.46rem;
+	
+}
+.form {
+    width: 6rem;
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 0.03rem 0.15rem 0 rgba(25, 25, 47, 0.3);
+    margin: 0 auto 0;
+	padding: 0.34rem 0.5rem 0.3rem;
+	
+}
+.form h2,.form p{
+	color: #3C4F5E;
+	font-size: 0.26rem;
+}
+.form h2{
+	text-align: center;
+	font-weight:bold;
+	margin-bottom: 0.2rem;
+}
+.form p:nth-of-type(1){
+	padding: 0.13rem 0 0.26rem 0.35rem;
+	text-align: left;
+}
+.form p:nth-of-type(2){
+	padding-left:0.35rem
+}
+.logo{
+	height: 0.48rem;
+    width: 100%;
+    background: url("../images/xintonglogo.png") no-repeat center center;
+    background-size: 1.54rem 0.48rem;
+   
+}
+.runname {
+    height: 1.73rem;
+    width: 100%;
+
+}
+.runname img{
+    display: block;
+    height: 1.73rem;
+    width: 2.18rem;
+    margin: 0 auto;
+}
+.subbtn {
+    display: block;
+    width: 100%;
+    height: 0.8rem;
+    line-height: 0.8rem;
+    background: linear-gradient(90deg, rgba(15, 224, 213, 1), rgba(12, 177, 254, 1));
+    box-shadow: 0 0.05rem 0.1rem 0 rgba(64, 149, 227, 0.3);
+    border-radius: 0.4rem;
+    font-size: 0.28rem;
+    color: #fff;
+    text-align: center;
+    margin-top: 0.5rem;
+    text-decoration: none;
+}
+
+.subbtn[disabled] {
+    background: #E1E1E1;
+    box-shadow: 0 0.05rem 0.1rem 0 rgba(225, 225, 225, 0.3);
+}
+.foottext{
+	display: flex;
+	justify-content: space-between;
+}
+.foottext a{
+    color: #00AEFF;
+    font-size: 0.24rem;
+    display: block;
+    height: 0.6rem;
+    line-height: 0.6rem;
+    text-align: right;
+    text-decoration: none;
+ 
+}
+
