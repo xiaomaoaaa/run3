@@ -34,8 +34,8 @@ module.exports = {
         assetsPublicPath: '/',
         proxyTable: {
             '/proxyapi': {
-                target: 'http://10.10.11.56:8083', //林国君电脑
-                // target: 'http://10.10.11.26:8083', //我的电脑
+                // target: 'http://10.10.11.56:8083', //林国君电脑
+                target: 'http://qct-test.shinyway.org/', //我的电脑
                 changeOrigin: true,
                 pathRewrite: {
                     '/proxyapi': ''

@@ -40,7 +40,7 @@
             <div class="right"></div>
         </div>
         <loading :show="show1" :text="text1"></loading>
-        <button @click="jt">截图</button>
+        <!-- <button @click="jt">截图</button> -->
     </div>
 </template>
 <script>

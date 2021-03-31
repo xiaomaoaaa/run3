@@ -51,68 +51,8 @@
             ></popup-picker>
           </group>
         </div>
-        <div class="inputitem clearfix">
-          <group title label-width="1.42rem">
-            <popup-picker
-              title="邀请家属"
-              :data="isvientlist"
-              v-model="isvient"
-              placeholder="请选择是否邀请家属"
-              confirm-text="确定"
-              @on-change="onChangevient"
-            ></popup-picker>
-          </group>
-        </div>
-        <div v-show="isrelate">
-          <div class="activecon" v-for="(item,index) in homepeoplelist" :key="index">
-            <div class="inputitem inputitem3 clearfix" :class="{'delete':index!=0}">
-              <group title label-width="1.42rem">
-                <popup-picker
-                  title
-                  :data="homerelatelist"
-                  v-model="item.familyRelations"
-                  placeholder="请选择家属关系"
-                  confirm-text="确定"
-                >
-                  <template slot="title" slot-scope="props">
-                    <!-- use scope="props" when vue < 2.5.0 -->
-                    <span :class="props.labelClass" :style="props.labelStyle" style="height:24px;">
-                      <span class="delbtn" @click="deletepeople(index, $event)"></span>
-                      <span class="dot"></span>
-                      <span style="vertical-align:middle;">{{'家属'+(index+1)}}</span>
-                    </span>
-                  </template>
-                </popup-picker>
-              </group>
-            </div>
-            <div class="inputitem inputitem2 clearfix">
-              <div class="homename">
-                <span>姓名</span>
-                <input
-                  type="text"
-                  placeholder="请填写家属姓名"
-                  name="homepeoplename"
-                  v-model="item.familyNames"
-                  @blur="scroll"
-                >
-              </div>
-              <group title label-width="0.6rem">
-                <popup-picker
-                  title="年龄"
-                  :data="agelist"
-                  v-model="item.familyAges"
-                  placeholder="请选择"
-                  confirm-text="确定"
-                ></popup-picker>
-              </group>
-            </div>
-          </div>
-        </div>
       </div>
-      <div class="addpeoplecon"><div class="addpeople" @click="addhomepeople" v-show="isrelate">+添加家属</div></div>
       <button class="subbtn" @click="submitData">报名</button>
-      <a class="signin" href></a>
-      <!-- <a class="signin" href>已报名手机号登录</a> -->
     </div>
     <toast
       v-model="showPositionValue"
@@ -206,35 +146,16 @@ export default {
           "悉尼"
         ]
       ],
-
-      isvientlist: [["是", "否"]],
-      agelist: [["0-14", "15-50", "50+"]],
-      homerelatelist: [["夫妻","父母", "子女", "兄弟姐妹", "其他"]],
       company: [],
-      isvient: [],
       showPositionValue: false,
-      homepeoplelist: [
-        {
-          familyNames: "",
-          familyAges: [],
-          familyRelations: []
-        }
-      ],
-      isrelate: false
+     
     };
   },
   methods: {
     scroll() {
       blurscrollToTop();
     },
-    //
-    onChangevient(val) {
-      if (val[0] === "是") {
-        this.isrelate = true;
-      } else {
-        this.isrelate = false;
-      }
-    },
+
     isPhoneNum() {
       clearInterval(this.timer);
       this.codetext = "发送验证码";
@@ -279,14 +200,7 @@ export default {
         }
       });
     },
-    //遍历数组homepeoplelist 不能有字段是非空的
-    issubmit() {
-      return this.homepeoplelist.every(item => {
-        return Object.values(item).every(item2 => {
-          return item2.length > 0;
-        });
-      });
-    },
+ 
     submitData() {
       let temarr = [];
       if (this.phoneNo.length < 1) {
@@ -309,33 +223,11 @@ export default {
         this.toasttext = "请选择公司";
         return;
       }
-      if (this.isvient.length < 1) {
-        this.showPositionValue = true;
-        this.toasttext = "请选择是否邀请家属";
-        return;
-      } else {
-        if (this.isvient[0] === "是") {
-          if (!this.issubmit()) {
-            this.showPositionValue = true;
-            this.toasttext = "家属信息请填写完整";
-            return;
-          } else {
-            this.homepeoplelist.map(item => {
-              let temobj = {
-                cstmName: item.familyNames,
-                age: item.familyAges[0],
-                relations: item.familyRelations[0]
-              };
-              temarr.push(temobj);
-            });
-          }
-        }
-      }
+     
       submitData({
         phoneNo: this.phoneNo,
         password: this.codeNo,
         name: this.name,
-        // isvient: this.isvient[0],
         company: this.company[0],
         userFamilyList: temarr
       }).then(res => {
@@ -349,24 +241,8 @@ export default {
         }
       });
     },
-    addhomepeople() {
-      let temObj = {
-        familyNames: "",
-        familyAges: [],
-        familyRelations: []
-      };
-      this.homepeoplelist.push(temObj);
-      //添加之后滚动到最底部
-      let domScorllcon = document.querySelector(".scorllcon");
-      this.$nextTick(() => {
-        domScorllcon.lastElementChild.scrollIntoView(false);
-      });
-    },
-    deletepeople(index, event) {
-      event.preventDefault();
-      event.stopPropagation();
-      this.homepeoplelist.splice(index, 1);
-    },
+  
+ 
     stopevent(e){
       e.stopPropagation()
       alert("Designed by 张弘 & Made by 毛建飞、林国君")
