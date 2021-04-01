@@ -28,7 +28,7 @@ body {
     background: rgba(255, 255, 255, 0.9);
     box-shadow: 0 0.03rem 0.15rem 0 rgba(25, 25, 47, 0.3);
     margin: 0 auto 0;
-	padding: 0.34rem 0.5rem 0.3rem;
+	padding: 0.34rem 0.3rem 0.3rem;
 	
 }
 .form h2,.form p{
@@ -47,22 +47,19 @@ body {
 .form p:nth-of-type(2){
 	padding-left:0.35rem
 }
-.logo{
-	height: 0.48rem;
-    width: 100%;
-    background: url("../images/xintonglogo.png") no-repeat center center;
-    background-size: 1.54rem 0.48rem;
-   
-}
-.runname {
-    height: 1.73rem;
-    width: 100%;
 
+.runname {
+    box-sizing: border-box;
+    height: 1.96rem;
+    width: 100%;
+    background: url("../images/img_iloveyou_sylogo.png") no-repeat right 0.1rem;
+    background-size: 1.41rem 0.31rem;
+    padding-bottom: 0.2rem;
 }
 .runname img{
     display: block;
-    height: 1.73rem;
-    width: 2.18rem;
+    height: 1.76rem;
+    width:1.49rem;
     margin: 0 auto;
 }
 .subbtn {

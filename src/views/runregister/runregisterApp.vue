@@ -245,7 +245,7 @@ export default {
  
     stopevent(e){
       e.stopPropagation()
-      alert("Designed by 张弘 & Made by 毛建飞、林国君")
+      // alert("Designed by 张弘 & Made by 毛建飞、林国君")
     }
   },
   mounted() {
