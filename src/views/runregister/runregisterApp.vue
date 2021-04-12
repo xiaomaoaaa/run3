@@ -1,7 +1,7 @@
 <template>
-  <div class="contain"  @click.self="stopevent">
+  <div class="contain" @click.self="stopevent">
     <!-- <div class="title"></div> -->
-    <div class="form" >
+    <div class="form">
       <div class="logo"></div>
       <div class="scorllcon">
         <div class="inputitem clearfix">
@@ -113,37 +113,37 @@ export default {
       toasttext: "发送成功",
       companylist: [
         [
-          "集团（含小麦）",
-          "海外投资事业部（含各地）",
-          "杭外(含A+)",
-          "游学（含各地）",
-          "浙江分公司",
-          "培优",
-          "乐学幼教",
-          "安徽",
-          "济南",
-          "苏州",
-          "深圳（含外语）",
-          "青岛",
-          "上海",
-          "山西（含外语）",
-          "长春",
-          "宁波（含外语、舟山）",
-          "广东",
-          "成都",
-          "重庆",
-          "陕西",
-          "南京",
-          "南昌",
-          "福建（含厦门、福州、泉州）",
-          "天津",
-          "北京（含外语）",
+         "集团（含小麦）",
           "集团驻京",
-          "温州（含外语）",
-          "武汉",
+          "杭州外语（含A+）",
+          "留学浙江分公司",
+          "海外投资事业部（含各地）",
+          "天津",
+          "青岛",
+          "山西（含外语）",
+          "陕西",
+          "长春",
           "河南",
+          "成都",
+          "广州",
+          "济南",
+          "南昌",
+          "南京",
+          "宁波(含舟山、外语)",
+          "福州",
+          "上海",
+          "深圳（含外语）",
+          "苏州",
+          "温州（含外语）",
+          "安徽",
+          "重庆",
+          "青少大区",
+          "初本",
           "长沙",
-          "悉尼"
+          "发现教育",
+          "武汉",
+          "厦门",
+          "泉州"
         ]
       ],
       company: [],
@@ -195,12 +195,18 @@ export default {
             }
           }, 1000);
         } else {
+          if(res.msg.indexOf("已经报名过")>-1){
+            setTimeout(() => {
+               window.location.href = "success.html";
+            }, 2000);
+            
+          }
           this.showPositionValue = true;
           this.toasttext = res.msg;
         }
       });
     },
- 
+
     submitData() {
       let temarr = [];
       if (this.phoneNo.length < 1) {
@@ -223,7 +229,7 @@ export default {
         this.toasttext = "请选择公司";
         return;
       }
-     
+
       submitData({
         phoneNo: this.phoneNo,
         password: this.codeNo,
@@ -241,9 +247,9 @@ export default {
         }
       });
     },
-  
+
  
-    stopevent(e){
+    stopevent(e) {
       e.stopPropagation()
       // alert("Designed by 张弘 & Made by 毛建飞、林国君")
     }
