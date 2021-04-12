@@ -1,0 +1,107 @@
+html,body {
+
+    height: 100%;
+
+}
+.logo {
+    box-sizing: border-box;
+    height: 0.86rem;
+    width: 100%;
+    background: url("../images/img_iloveyou_sylogo.png") no-repeat right 0.1rem;
+    background-size: 1.41rem 0.31rem;
+    padding-bottom: 0.2rem;
+}
+.banner {
+    box-sizing: border-box;
+    height: 0.5rem;
+    width: 100%;
+    background: url("../images/bg_head.jpg") no-repeat center ;
+    background-size: 100% 0.5rem;
+    padding-bottom: 0.2rem;
+}
+.taskcon{
+    position: relative;
+    font-size: 0.3rem;
+}
+.green1{
+    background: #43b253;
+}
+.green1 .contit{
+    width: 1rem;
+    height: 0.5rem;
+    background: url("../images/img_iloveyou_sylogo.png") no-repeat center ;
+    background-size: 1rem 0.5rem; 
+}
+.green2{
+    background: #55c563;
+    text-align: center;
+}
+.green2 .contit{
+    width: 1rem;
+    height: 0.5rem;
+    background: url("../images/img_iloveyou_sylogo.png") no-repeat center ;
+    background-size: 1rem 0.5rem; 
+}
+.linkbtn{
+    position: absolute;
+
+}
+.nextbtn{
+    width: 1rem;
+    height: 0.5rem;
+    background: url("../images/img_iloveyou_sylogo.png") no-repeat center ;
+    background-size: 1rem 0.5rem; 
+    margin: 0 auto;
+}
+
+.combtn{
+    width: 3rem;
+    height: 0.6rem;
+    border-radius: 0.3rem;
+    position: fixed;
+    bottom: 0.3rem;
+    left: 50%;
+    margin-left:-1.5rem;
+    font-size: 0.3rem;
+    text-align: center;
+    line-height: 0.6rem;
+    background-image: linear-gradient(to right, red , yellow);
+}
+
+.labelcon label {
+    display: block;
+    display: flex;
+    justify-content: text;
+    align-items: center;
+    width: 100%;
+  }
+  .labelcon label input[type="radio"] {
+    display: none;
+  }
+  .labelcon label p span {
+    font-size: 0.24rem;
+    padding-left: 0.2rem;
+    color: #999;
+  }
+  .labelcon label input[type="radio"] + p {
+    box-sizing: border-box;
+    display: inline-block;
+    width: 100%;
+    font-size: 0.3rem;
+    padding-left: 0.8rem;
+    background: url("http://img.qct-test.shinyway.org/file/h5/icon_selectlist_no.png") no-repeat left center;
+    background-size: 0.3rem 0.3rem;
+  }
+  .labelcon label input[type="radio"]:checked + p {
+    background: url("http://img.qct-test.shinyway.org/file/h5/icon_selectlist_yes.png") no-repeat left center;
+    background-size: 0.3rem 0.3rem;
+  }
+
+ .fiexddiv h3 {
+    font-size: 0.36rem;
+    text-align: center;
+    position: relative;
+    margin: 0.32rem auto 0;
+    font-weight: bold;
+    padding: 0 0.3rem;
+  }
