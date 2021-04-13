@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import App from './taskApp'
+import App from './answersucApp'
 
 const appls = new Vue({
   render: h => h(App, {
@@ -7,7 +7,6 @@ const appls = new Vue({
   }),
 
 }).$mount("#app");
-
 
 // window.postDataNative = function () {
 //     return {

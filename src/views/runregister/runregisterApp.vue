@@ -14,7 +14,7 @@
             v-model="phoneNo"
             @input="isPhoneNum"
             @blur="scroll"
-          >
+          />
         </div>
         <div class="inputitem clearfix">
           <input
@@ -24,10 +24,12 @@
             id="codeNo"
             maxlength="6"
             v-model="codeNo"
-            style="width:3rem;"
+            style="width: 3rem"
             @blur="scroll"
-          >
-          <button @click="getcode" class="validcode" :disabled="isdisabled">{{codetext}}</button>
+          />
+          <button @click="getcode" class="validcode" :disabled="isdisabled">
+            {{ codetext }}
+          </button>
         </div>
         <div class="inputitem clearfix">
           <input
@@ -38,7 +40,7 @@
             maxlength="20"
             v-model="name"
             @blur="scroll"
-          >
+          />
         </div>
         <div class="inputitem clearfix">
           <group title label-width="1.42rem">
@@ -66,7 +68,7 @@
 </template>
 <script>
 import Lib from "assets/js/Lib";
-import { getcode, submitData } from "../../api/api.js";
+
 require("assets/css/run.css");
 function blurscrollToTop() {
   //兼容ios12以上的页面被键盘顶上去不滑下来
@@ -82,7 +84,7 @@ function blurscrollToTop() {
       // window.scrollTo(0,scrollTop);
       let currentPosition, timer;
       let speed = 1;
-      timer = setInterval(function() {
+      timer = setInterval(function () {
         currentPosition =
           document.documentElement.scrollTop || document.body.scrollTop;
         currentPosition -= speed;
@@ -94,12 +96,13 @@ function blurscrollToTop() {
     }
   }
 }
+import { signSub, getToken } from "../../api/api2.js";
 import { Group, PopupPicker, Toast } from "vux";
 export default {
   components: {
     Group,
     PopupPicker,
-    Toast
+    Toast,
   },
   data() {
     return {
@@ -113,7 +116,7 @@ export default {
       toasttext: "发送成功",
       companylist: [
         [
-         "集团（含小麦）",
+          "集团（含小麦）",
           "集团驻京",
           "杭州外语（含A+）",
           "留学浙江分公司",
@@ -143,12 +146,11 @@ export default {
           "发现教育",
           "武汉",
           "厦门",
-          "泉州"
-        ]
+          "泉州",
+        ],
       ],
       company: [],
       showPositionValue: false,
-     
     };
   },
   methods: {
@@ -171,38 +173,51 @@ export default {
 
     getcode() {
       this.isdisabled = true;
-      getcode({ phoneNo: this.phoneNo }).then(res => {
-        this.isdisabled = false;
-        if (res.rc === 0) {
-          this.showPositionValue = true;
-          this.toasttext = "发送成功";
-          let countdown = 60;
-          this.isdisabled = true;
-          this.codetext = `${countdown}秒后重试`;
-          //启动计时器，1秒执行一次
-          this.timer = setInterval(() => {
-            if (countdown == 0) {
-              clearInterval(this.timer); //停止计时器
-              if (this.isphone) {
-                this.isdisabled = false;
-              } else {
-                this.isdisabled = true;
-              }
-              this.codetext = `发送验证码`;
-            } else {
-              countdown--;
-              this.codetext = `${countdown}秒后重试`;
+
+      signSub(
+        { phoneNo: this.phoneNo },
+        "/apiWalk/lx/sendSmsForRegister",
+        "post"
+      ).then((res) => {
+        if (res.status == 11003) {
+          //11003重新获取token  再执行当前方法
+          getToken().then((res) => {
+            if (res.status == 1) {
+              //token没返回的话就不调用当前接口，防止死循环
+              this.getcode();
             }
-          }, 1000);
+          });
+        } else if (res.status == 1) {
+          this.isdisabled = false;
+            this.showPositionValue = true;
+            this.toasttext = "发送成功";
+            let countdown = 60;
+            this.isdisabled = true;
+            this.codetext = `${countdown}秒后重试`;
+            //启动计时器，1秒执行一次
+            this.timer = setInterval(() => {
+              if (countdown == 0) {
+                clearInterval(this.timer); //停止计时器
+                if (this.isphone) {
+                  this.isdisabled = false;
+                } else {
+                  this.isdisabled = true;
+                }
+                this.codetext = `发送验证码`;
+              } else {
+                countdown--;
+                this.codetext = `${countdown}秒后重试`;
+              }
+            }, 1000);
+          
         } else {
-          if(res.msg.indexOf("已经报名过")>-1){
-            setTimeout(() => {
-               window.location.href = "success.html";
-            }, 2000);
-            
-          }
-          this.showPositionValue = true;
-          this.toasttext = res.msg;
+           if (res.details.indexOf("已经报名过") > -1) {
+              setTimeout(() => {
+                window.location.href = "success.html";
+              }, 2000);
+            }
+            this.showPositionValue = true;
+            this.toasttext = res.details;
         }
       });
     },
@@ -230,33 +245,42 @@ export default {
         return;
       }
 
-      submitData({
-        phoneNo: this.phoneNo,
+      signSub(
+        { phoneNo: this.phoneNo,
         password: this.codeNo,
         name: this.name,
         company: this.company[0],
-        userFamilyList: temarr
-      }).then(res => {
-        if (res.rc === 0) {
-          this.showPositionValue = true;
+        userFamilyList: temarr, },
+        "/apiWalk/lx/createUser",
+        "post"
+      ).then((res) => {
+        if (res.status == 11003) {
+          //11003重新获取token  再执行当前方法
+          getToken().then((res) => {
+            if (res.status == 1) {
+              //token没返回的话就不调用当前接口，防止死循环
+              this.submitData();
+            }
+          });
+        } else if (res.status == 1) {
+           this.showPositionValue = true;
           this.toasttext = "报名成功";
           window.location.href = "success.html";
+          
         } else {
-          this.showPositionValue = true;
-          this.toasttext = res.msg;
+           
+            this.showPositionValue = true;
+            this.toasttext = res.details;
         }
       });
     },
 
- 
     stopevent(e) {
-      e.stopPropagation()
+      e.stopPropagation();
       // alert("Designed by 张弘 & Made by 毛建飞、林国君")
-    }
+    },
   },
-  mounted() {
-    
-  }
+  mounted() {},
 };
 </script>
 <style>
