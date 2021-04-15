@@ -82,6 +82,7 @@
             <div class="name">{{item.userName }}</div>
           </li>
           
+          
         </ul>
       </div>
     </div>
@@ -109,7 +110,6 @@ export default {
       taskOrder: 1,
       teamList: [],
       defaultimg:"http://img.qct-test.shinyway.org/file/runimg/img_task_avator_default.png",
-     
       showPositionValue: false,
       userTeam: {},
       ishz: "",

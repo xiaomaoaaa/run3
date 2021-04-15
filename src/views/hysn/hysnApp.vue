@@ -7,7 +7,7 @@
       </p>
       <p class="ps">(PS：最终点赞数以工作人员审核为准,请如实填写)</p>
       <div class="huozan">
-        <span>我已经获得</span><input type="number" v-model="likeCount" id="lovecounts"/><span>个点赞</span>
+        <span>我已经获得</span><input type="text" v-model="likeCount" id="lovecounts"/><span>个点赞</span>
       </div>
     </div>
     <div class="upload">
@@ -50,7 +50,7 @@
               @click="fileDel(index)"
             /> -->
 
-            <img :src="baseimg+item.address" class="listimg" />
+            <img :src="baseimg+'thumb/'+item.address" class="listimg" />
           </div>
         </div>
       </div>
@@ -66,7 +66,7 @@ import { signSub, getToken } from "../../api/api2.js";
 import { getParameter, transmit } from "assets/js/until.js";
 import Lib from "assets/js/Lib.js";
 require("assets/css/task.css");
-const delimg = require("assets/images/icon_iloveyou_close.png");
+// const delimg = require("assets/images/icon_iloveyou_close.png");
 const upload = require("assets/images/img_iloveyou_adds.png");
 const uploadtit = require("assets/images/img_iloveyou_sctp_title.png");
 const cksl = require("assets/images/img_iloveyou_cksl.png");
@@ -76,7 +76,7 @@ export default {
     return {
       imgList: [],
       size: 0,
-      delimg: delimg,
+      // delimg: delimg,
       upload: upload,
       uploadtit: uploadtit,
       cksl:cksl,
