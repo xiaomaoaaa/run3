@@ -22,8 +22,8 @@ require('assets/css/reset.css');
 	doc.addEventListener('DOMContentLoaded', recalc, false);
 	/*DOMContentLoaded文档加载完成不包含图片资源 onload包含图片资源*/
 })(document, window);
-const longbg = require("assets/images/longbg.jpg");
-const shortbg = require("assets/images/shortbg.jpg");
+const longbg = "http://img.qct-test.shinyway.org/file/runimg/longbg.jpg";
+const shortbg = "http://img.qct-test.shinyway.org/file/runimg/shortbg.jpg";
 if (screen.height / screen.width > 2) {
 	//用长图片给body做背景
 	document.body.style.background =

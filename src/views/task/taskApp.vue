@@ -1,5 +1,5 @@
 <template>
-  <div class="task">
+  <div class="task" id="task">
     <div class="banner"></div>
     <div class="taskcon" v-if="taskOrder == 1">
       <div class="green1">
@@ -61,6 +61,7 @@
         </p>
       </div>
     </div>
+     <img src="http://img.qct-test.shinyway.org/file/runimg/kuimg.jpg" class="imgku" v-if="taskOrder == 2" />
     <div class="nextbtn" v-if="teamList.length == 0"></div>
     <div class="teammateList" v-if="teamList.length > 0">
       <div class="imgtit3"></div>
@@ -68,9 +69,9 @@
         <ul>
           <li v-for="(item, index) in teamList" :key="index">
             <img :src="item.picPath ? baseimg + item.picPath : defaultimg" />
-            <div class="name">{{ item.userName }}</div>
+            <div class="name">{{item.userName }}</div>
             <p :class="{ compeleted: item.thridResult == 1 }"></p>
-          </li>
+          </li>     
         </ul>
       </div>
       <div v-else>
@@ -78,12 +79,13 @@
         <ul>
           <li v-for="(item, index) in teamList" :key="index">
             <img :src="item.picPath ? baseimg + item.picPath : defaultimg" />
-            <div class="name">毛建飞</div>
+            <div class="name">{{item.userName }}</div>
           </li>
+          
         </ul>
       </div>
     </div>
-    <div class="combtn" @click="transmit" >{{taskOrder == 3?"开始答题":"点击上传照片和视频"}}</div>
+    <button class="combtn" @click="transmit" :disabled="disabled" >{{taskOrder == 3?"开始答题":"点击上传照片和视频"}}</button>
     <toast
       v-model="showPositionValue"
       type="text"
@@ -97,28 +99,31 @@
 <script>
 import { Toast } from "vux";
 import { signSub, getToken } from "../../api/api2.js";
-import { getParameter, transmit, setDocTitle } from "assets/js/until.js";
+import { getParameter, transmit } from "assets/js/until.js";
 import Lib from "assets/js/Lib.js";
 require("assets/css/task.css");
-const defaultimg = require("assets/images/img_task_avator_default.png");
 export default {
   components: { Toast },
   data() {
     return {
       taskOrder: 1,
       teamList: [],
-      defaultimg: defaultimg,
+      defaultimg:"http://img.qct-test.shinyway.org/file/runimg/img_task_avator_default.png",
+     
       showPositionValue: false,
       userTeam: {},
       ishz: "",
-      baseimg: "http://img.qct-cg.shinyway.org/",
+      disabled:false,
+      baseimg: "http://img.qct-test.shinyway.org/",
     };
   },
 
   mounted() {
     this.getuserteam();
     this.taskOrder = getParameter("taskOrder");
-    document.body.style.background = "#fefef2";
+    document.body.style.background = "#e1e1c7";
+  
+   
   },
   methods: {
     getuserteam() {
@@ -166,15 +171,20 @@ export default {
       });
     },
     transmit() {
+     
       if (this.taskOrder == 3) {
         window.location.href=`answer.html?userId=${getParameter('userId')}`
+      
       } else {
+        // alert(this.taskOrder)
+         this.disabled=true
         if (parseInt(this.userTeam.teamScore) < parseInt(this.taskOrder) - 1) {
           this.showPositionValue = true;
           setTimeout(() => {
             transmit("swUploadFile", {
               number: this.taskOrder,
             });
+              this.disabled=false
             this.showPositionValue = false;
           }, 7000);
         } else {

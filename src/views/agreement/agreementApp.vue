@@ -34,7 +34,7 @@
 <script>
 import Lib from "assets/js/Lib";
 require("assets/css/agreement.css");
-const bg_head = require("assets/images/bg_head.jpg");
+const bg_head = "http://img.qct-test.shinyway.org/file/runimg/bg_head.jpg";
 export default {
   components: {},
   data() {

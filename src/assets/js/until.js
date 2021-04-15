@@ -2,10 +2,10 @@ var share = getParameter("share");
 var ua = navigator.userAgent; //获取判断用的对象
 
 export var isIos = !!ua.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/)
-export const $baseImgurl = 'http://img.qct-test.shinyway.org/file/h5/';
+export const $baseImgurl = 'http://img.qct-test.shinyway.org//file/h5/';
 
-// export const $proBaseImgurl= 'http://img.qct-cg.shinyway.org/';
-export const $proBaseImgurl = window.location.host.indexOf('qct-cg.shinyway.org') != -1 ? 'http://img.qct-cg.shinyway.org/' : 'http://img-qct-test.shinyway.org/';
+// export const $proBaseImgurl= 'http://img.qct-test.shinyway.org/';
+export const $proBaseImgurl = window.location.host.indexOf('qct-cg.shinyway.org') != -1 ? 'http://img.qct-test.shinyway.org/' : 'http://img-qct-test.shinyway.org/';
 var isAndroid = ua.indexOf('Android') > -1 || ua.indexOf('Linux') > -1;
 export var isIosQQ = (isIos && / QQ/i.test(navigator.userAgent));
 export var isAndroidQQ = (isAndroid && /MQQBrowser/i.test(navigator.userAgent) && /QQ/i.test((navigator.userAgent).split('MQQBrowser')));

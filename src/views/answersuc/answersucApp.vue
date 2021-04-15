@@ -1,6 +1,5 @@
 <template>
   <div class="task">
-    <div class="logo"></div>
     <div class="banner"></div>
     <div class="taskcon">
       <div class="green1">
@@ -34,19 +33,18 @@
 </template>
 <script>
 import { signSub,getToken } from "../../api/api2.js";
-import { getParameter, transmit, setDocTitle } from "assets/js/until.js";
+import { getParameter, transmit } from "assets/js/until.js";
 import Lib from "assets/js/Lib.js";
 require("assets/css/task.css");
-const bg_head = require("assets/images/bg_head.jpg");
-const bg_head2 = require("assets/images/bg_head2.jpg");
-const defaultimg = require("assets/images/img_task_avator_default.png");
+
 export default {
   components: {},
   data() {
     return {
       teamList:[],
-      defaultimg:defaultimg,
-      iscusmodal:false
+      defaultimg:"http://img.qct-test.shinyway.org/file/runimg/img_task_avator_default.png",
+      iscusmodal:false,
+      baseimg: "http://img.qct-test.shinyway.org/",
     };
   },
  

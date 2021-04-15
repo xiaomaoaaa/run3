@@ -21,12 +21,12 @@
 <script>
 import Lib from "assets/js/Lib";
 require("assets/css/runindex.css");
-const img_iloveyou_logo = require("assets/images/img_iloveyou_logo.png");
+
 export default {
   components: {},
   data() {
     return {
-      img_iloveyou_logo:img_iloveyou_logo
+      img_iloveyou_logo:"http://img.qct-test.shinyway.org/file/runimg/img_iloveyou_logo.png"
     };
   },
   methods: {},

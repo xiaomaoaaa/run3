@@ -2,24 +2,23 @@ import request from '../util/request2.js'
 import { formatTime } from '../assets/js/until.js'
 let host = window.location.host
 let domain1, domain2, domain3;
-if (host.indexOf('shinyway.org') != -1 && host.indexOf('test') == -1) {
+if (host.indexOf('walk.shinyway.org') != -1) {
   // 正式环境接口域名
-  domain1 = "http://apiwalk.shinway.org/v2";
-  domain2 = "http://apiwalk.shinway.org/v2";
-  domain3 = "http://apiwalk.shinway.org/v2";
+  domain1 = "http://apiWalk.shinyway.org/v2";
+  domain2 = "http://apiWalk.shinyway.org/v2";
+  domain3 = "http://apiWalk.shinyway.org/v2";
 } else {
-
   // 测试环境接口域名（国君电脑）
-  domain1 = "http://10.10.11.56:8010/api";
-  domain2 = "http://10.10.11.56:8010/api";
-  domain3 = "http://10.10.11.56:8010/api";
+  // domain1 = "http://10.10.11.56:8010/api";
+  // domain2 = "http://10.10.11.56:8010/api";
+  // domain3 = "http://10.10.11.56:8010/api";
   // 线上测试
-  // domain1 = "https://api-cs.shinyway.org/cgv1";
-  // domain2 = "https://api-cs.shinyway.org/cgv1";
-  // domain3 = "https://api-cs.shinyway.org/cgv1";
+  domain1 = "http://apiWalk.shinyway.org/v2";
+  domain2 = "http://apiWalk.shinyway.org/v2";
+  domain3 = "http://apiWalk.shinyway.org/v2";
 
 }
-
+console.log(domain1)
 // 开发环境接口域名
 // const domain1 = "http://10.10.11.26:8011/proxy/api";//国君电脑上才有api的 测试和正式环境都没有api的,后端开通了跨域所以不需要开发环境代理配置
 // const domain2 = "http://10.10.11.26:8011/v2";

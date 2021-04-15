@@ -1,12 +1,12 @@
 import Vue from 'vue'
-import App from './taskApp'
+import App from './hysnApp'
+
 const appls = new Vue({
   render: h => h(App, {
     ref: 'curapp'
   }),
 
 }).$mount("#app");
-
 
 // window.postDataNative = function () {
 //     return {

@@ -25,9 +25,7 @@ table th {
 
 .tabmenu {
   
-    /* background: #f8f8f8; */
-    /* background: url("../images/bg_head.jpg") no-repeat center top;
-    background-size:  100% 2.2rem; */
+ 
     border-bottom: #C9C9C9 0.01rem solid;
     display: flex;
     justify-content: space-between;
