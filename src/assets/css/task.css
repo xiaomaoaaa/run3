@@ -92,8 +92,8 @@ body {
 }
 
 .nextbtn {
-    width: 0.54rem;
-    height: 0.4rem;
+    width: 0.4rem;
+    height: 0.54rem;
     background: url("../images/img_iloveyou_task_arrow.png") no-repeat center;
     background-size: 0.4rem 0.54rem;
     margin: 1.2rem auto 0;
@@ -216,8 +216,8 @@ body {
     height: 0.75rem;
     background: url("../images/img_task_avator_wwc.png") no-repeat left center;
     background-size:  0.74rem  0.745rem;
-    top: 0;
-    left: 0;
+    top: -0.1rem;
+    left: -0.1rem;
 }
 .teammateList .name{
     text-align: center;
@@ -412,16 +412,20 @@ body {
       display: block;
       width: 2.34rem;
       height: 0.44rem;
-    margin: 0 auto;
+      margin: 0 auto;
+  }
+  .fixfoot{
+    width: 7.5rem;  
+    position: fixed;
+    bottom: 0.2rem;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
   }
   .combtn2{
     width: 5.48rem;
     height: 0.8rem;
     border-radius: 0.4rem;
-    position: fixed;
-    bottom: 0.58rem;
-    left: 50%;
-    margin-left: -2.74rem;
     font-size: 0.3rem;
     color: #fff;
     text-align: center;
@@ -431,12 +435,10 @@ body {
   }
   .combtn3{
     width: 7.5rem;
-    position: fixed;
-    bottom: 0.2rem;
     font-size: 0.2rem;
     color: #a2cfa9;
     text-align: center;
-
+    margin-top: 0.1rem;
   }
 
   .intro{
@@ -471,3 +473,11 @@ body {
       margin: 0 auto;
 
   }
+
+  #lovecounts{
+    
+-webkit-appearance:none;/*清除ios默认圆角*/
+
+      border-radius: 0;
+  }
+  .nofixed{position: relative;}

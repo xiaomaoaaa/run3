@@ -7,7 +7,7 @@
       </p>
       <p class="ps">(PS：最终点赞数以工作人员审核为准,请如实填写)</p>
       <div class="huozan">
-        <span>我已经获得</span><input type="text" v-model="likeCount" id="lovecounts"/><span>个点赞</span>
+        <span>我已经获得</span><input type="number" v-model="likeCount" id="lovecounts" @focus="focus" @blur="blur"/><span>个点赞</span>
       </div>
     </div>
     <div class="upload">
@@ -49,16 +49,16 @@
               class="upload_warp_img_div_del"
               @click="fileDel(index)"
             /> -->
-
             <img :src="baseimg+'thumb/'+item.address" class="listimg" />
           </div>
         </div>
       </div>
        <img :src="cksl"   class="shili" @click="casepage"/>
     </div>
-    
+    <div class="fixfoot" :class="{nofixed:isfocus}">
     <div class="combtn2" @click="submitlove">点击上传照片和视频</div>
     <div class="combtn3">本活动最终解释权归集团行政人事中心所有</div>
+    </div>
   </div>
 </template>
 <script>
@@ -83,6 +83,7 @@ export default {
       imgurllist:[],
       likeCount:"",
       baseimg: "http://img.qct-test.shinyway.org/",
+      isfocus:false
     };
   },
 
@@ -91,6 +92,12 @@ export default {
     this.getimgurllist()
   },
   methods: {
+    focus() {
+      this.isfocus=true;
+    },
+    blur() {
+      this.isfocus=false;
+    },
     getimgurllist() {
       signSub(
         {
@@ -123,6 +130,12 @@ export default {
         document.getElementById("lovecounts").focus()
         return
       }
+    if(this.imgurllist.length==0){
+        alert("请先上传图片")
+        return
+      }
+  
+
       signSub(
         {
           userId: getParameter("userId"),
@@ -141,7 +154,7 @@ export default {
             }
           });
         } else if (res.status == 1) {
-           alert("上传成功");
+          alert("上传成功")
           transmit("pageBack",{})
         } else {
           alert(res.details);

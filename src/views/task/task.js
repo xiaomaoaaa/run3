@@ -7,7 +7,6 @@ const appls = new Vue({
 
 }).$mount("#app");
 
-
 // window.postDataNative = function () {
 //     return {
 //       "swShareUrl": window.location.href,

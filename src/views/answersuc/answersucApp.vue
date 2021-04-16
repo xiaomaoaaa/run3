@@ -49,7 +49,7 @@ export default {
   },
  
   mounted() {
-   document.body.style.background ="#fefef2"
+   document.body.style.background ="#e1e1c7"
     this.getuserteam();
   }, 
   methods: {

@@ -122,7 +122,7 @@ export default {
     this.getuserteam();
     this.taskOrder = getParameter("taskOrder");
     document.body.style.background = "#e1e1c7";
-  
+    this.createTeamStartTime();
    
   },
   methods: {
@@ -171,12 +171,10 @@ export default {
       });
     },
     transmit() {
-     
       if (this.taskOrder == 3) {
         window.location.href=`answer.html?userId=${getParameter('userId')}`
       
       } else {
-        // alert(this.taskOrder)
          this.disabled=true
         if (parseInt(this.userTeam.teamScore) < parseInt(this.taskOrder) - 1) {
           this.showPositionValue = true;
@@ -193,6 +191,30 @@ export default {
           });
         }
       }
+    },
+    createTeamStartTime() {
+     signSub(
+        {
+          userId: getParameter("userId"),
+        },
+        "/apiWalk/lx/createTeamStartTime",
+        "post"
+      ).then((res) => {
+        if (res.status == 11003) {
+          //11003重新获取token  再执行当前方法
+          getToken().then((res) => {
+            if (res.status == 1) {
+              //token没返回的话就不调用当前接口，防止死循环
+              this.getuserteam();
+            }
+          });
+        } else if (res.status == 1) {
+        
+        } else {
+          alert(res.details);
+        }
+      });
+      
     },
   },
   watch: {},

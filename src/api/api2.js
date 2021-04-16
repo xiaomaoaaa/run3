@@ -9,13 +9,10 @@ if (host.indexOf('walk.shinyway.org') != -1) {
   domain3 = "http://apiWalk.shinyway.org/v2";
 } else {
   // 测试环境接口域名（国君电脑）
-  // domain1 = "http://10.10.11.56:8010/api";
-  // domain2 = "http://10.10.11.56:8010/api";
-  // domain3 = "http://10.10.11.56:8010/api";
-  // 线上测试
-  domain1 = "http://apiWalk.shinyway.org/v2";
-  domain2 = "http://apiWalk.shinyway.org/v2";
-  domain3 = "http://apiWalk.shinyway.org/v2";
+  domain1 = "http://10.10.11.56:8010/api";
+  domain2 = "http://10.10.11.56:8010/api";
+  domain3 = "http://10.10.11.56:8010/api";
+ 
 
 }
 console.log(domain1)
